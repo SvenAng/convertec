@@ -2,12 +2,13 @@ BUILD A THEME WITH ZURB FOUNDATION
 ----------------------------------
 
 The base Foundation theme is designed to be easily extended by its sub-themes.
-You shouldn't modify any of the CSS or PHP files in the zurb_foundation/ folder; 
+You shouldn't modify any of the CSS or PHP files in the zurb_foundation/ folder;
 but instead you should create a sub-theme of zurb_foundation which is located in
 a folder outside of the root zurb_foundation/ folder. The examples below assume
 zurb_foundation and your sub-theme will be installed in themes/,
-but any valid theme directory is acceptable. Read the 
+but any valid theme directory is acceptable. Read the
 sites/default/default.settings.php for more info.
+
 
 This theme does not support IE7. If you need it downgrade to Foundation 2 see
 http://foundation.zurb.com/docs/faq.php or use the script in the starter
@@ -102,5 +103,5 @@ Optional steps:
 
  9. Further extend your sub-theme.
 
-    Discover further ways to extend your sub-theme by reading 
+    Discover further ways to extend your sub-theme by reading
     Drupal 8's Theme Guide online at: https://www.drupal.org/theme-guide/8
