@@ -1,0 +1,12 @@
+global:
+  version: VERSION
+  css:
+    base:
+      css/convertec.css: {}
+      fonts/foundation-icons/foundation-icons.css: {}
+  js:
+    js/convertec.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/modernizr

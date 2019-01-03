@@ -1,0 +1,101 @@
+<?php
+
+// Add your custom theme override functions here.
+
+/**
+ * Implements hook_preprocess_block()
+ */
+ function convertec_preprocess_block(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+ function convertec_preprocess_field(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_html().
+ *
+ * Adds additional classes
+ */
+ function convertec_preprocess_html(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_node
+ *
+ * Add template suggestions and classes
+ */
+ function convertec_preprocess_node(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_page
+ *
+ * Add convenience variables and template suggestions
+ */
+ function convertec_preprocess_page(&$variables) {
+
+    // hspage är data till högerspalten
+    // Troligtvis för att det finns en bugg med tomma block som ligger och ta r upp spaltplats. denna behövs inte längre..
+    // logik som kan läggas i page.html.twig
+    /*{% if hspage is not empty %}
+            <div id="sidebar-second" class="{{ sidebar_sec_grid }} x columns sidebar">
+              {% autoescape false %}
+                  {{ hspage }}
+              {% endautoescape %}
+            </div>
+          {% endif %} 
+          och..
+          {% if hspage is not empty %}
+            {% set main_convertec = 'large-8' %}
+            {% set right_convertec = 'large-4' %}
+          {% else %}
+            {% set main_convertec ='large-12' %}
+          {% endif %}
+    */
+    if (!empty($variables['node']) && !empty($variables['node']->field_hogerspalt_basic)){
+        $variables['hspage'] = $variables['node']->field_hogerspalt_basic->value;
+    }
+    
+     // Convenience variables
+    if (isset($variables['page']['sidebar_first'])) {
+        $left = $variables['page']['sidebar_first'];
+    }
+     if (isset($variables['page']['sidebar_second'])) {
+        $right = $variables['page']['sidebar_second'];
+     }
+    
+    // Dynamic sidebars
+    
+    if (!empty($left) && !empty($right)) {
+    $variables['main_grid'] = 'large-6 large-push-3';
+    $variables['sidebar_first_grid'] = 'large-3 large-pull-6';
+    $variables['sidebar_sec_grid'] = 'large-3';
+    }
+    elseif (empty($left) && !empty($right)) {
+    $variables['main_grid'] = 'large-8';
+    $variables['sidebar_first_grid'] = '';
+    $variables['sidebar_sec_grid'] = 'large-4';
+    }
+    elseif (!empty($left) && empty($right)) {
+    $variables['main_grid'] = 'large-8 large-push-4';
+    $variables['sidebar_first_grid'] = 'large-4 large-pull-8';
+    $variables['sidebar_sec_grid'] = '';
+    }
+    else {
+    $variables['main_grid'] = 'large-12';
+    $variables['sidebar_first_grid'] = '';
+    $variables['sidebar_sec_grid'] = '';
+    }
+
+   
+   
+   
+ }
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+ function convertec_preprocess_views_view(&$variables) {}

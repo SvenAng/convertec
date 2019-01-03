@@ -1,0 +1,76 @@
+//Ultimenu overrides\
+.ultimenu__flyout{
+    
+//    left: -300px;
+    top: 30px;
+    left: 0;
+    width: 960px;
+    left: 30%;
+    margin-left: -480px; /* Half of the width */
+    border-radius: 0;
+    transition: visibility 0.1s linear 0.1s, opacity 0.1s linear, margin 0s ease; 
+//    position: fixed; 
+    .ultimenu__region{
+        margin-top: 33px;
+        background: $silver; 
+        padding: 1rem;
+    }
+}
+.has-ultimenu{
+//    position: static;
+}
+ul.ultimenu{
+    display:block;
+    text-align: right;
+}
+.ultimenu {
+    li{
+        a, span{
+            font-size: 1.2rem;
+        }
+    }
+    li:last-child a{
+        padding-right: 0;
+    }
+}
+.ultimenu--basic .ultimenu__flyout{
+    background: none;
+    box-shadow: none;
+    z-index: 9999;
+}
+
+
+.ultimenu__region {
+    text-align: left;
+    section{
+        width: 33%;
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 1rem;
+        
+    }
+}
+.ultimenu__region section:last-child{
+    padding-right: 0;
+}
+.ultimenu__region{
+    ul{
+        margin-left: 0;
+        li{
+            list-style-type: none;
+            
+            a{
+//                margin-left: 0.5rem;
+            }
+            span{
+                font-size: 1.2rem;
+                font-family: 'PT Sans Narrow', sans-serif;
+                border-bottom: dotted $primary-color 1px;
+                color: $steel;
+                display: block;
+                margin-bottom: .5rem;
+                margin-top: .3rem;
+            }
+        }
+    }
+}

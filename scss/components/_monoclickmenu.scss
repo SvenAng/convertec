@@ -1,0 +1,318 @@
+//Mobilmeny\
+.xblock-huvudmeny-11{
+    .xmenu{
+        .expand{
+            content: " + ";
+        }
+        .expand-indicator{
+          float: right;  
+//          background: green;
+          display: block;
+          width: 3rem;
+          text-align: center;
+        }
+        ul{
+          margin:0;
+          padding-top:0;
+            
+            li{
+              text-align: inherit;
+              padding: 0.3rem 0.5rem;
+              a.flyout-toggle{
+                  display: none;
+              }
+                
+              a{
+                padding: 0;
+              }
+            }
+            li.has-flyout{
+              clear:both;
+                ul.flyout{
+                  display: none;
+                  background:$primary-color-lighter; 
+                  .expand-indicator{
+                    display: none;
+                  }
+                }
+                .expand{
+                    content: " + ";
+                  span{
+                    cursor: pointer;
+                  }
+                }
+                span::after { 
+                    text-align: right;
+                }
+                ul{
+                    li{
+                        span::after{
+                            content: inherit; 
+                        }
+                    }
+                    ul{
+                        a{
+                            text-transform: inherit;  
+                            font-size: 0.9rem;
+                          
+                        } 
+                        
+                    }
+                    ul.flyout{
+                        display: block; //Permanent öppethållande av undernivåer
+                        background: none;
+                      
+                    }
+                }
+                ul{
+                    li{
+                        span{
+                            color: $oil; 
+//                            border-top: 1px dotted $white;
+                        }
+                    }
+                    
+                } 
+            }
+            
+        }
+        span{
+            color: $white;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+//            padding: 2px 0;
+//            display: block;
+           
+        }
+        
+    }
+}
+
+
+////////////////////
+.mobilmenu-wrapper{
+    .inner{
+        background: $primary-color;
+        text-align: center;
+        a{
+            color: $white;
+        }
+    }
+    position: absolute;
+    top:145px;
+    width: 100%;
+    z-index: 100000;
+}
+
+.menu-ball{
+    width: 44px;
+    height: 44px;
+//    background-color: $nyaarter-orange;
+    border-radius: 22px;
+//    display: inline-block;
+    float: right;
+}
+//Hamburgare
+.c-hamburger {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 38px;
+    height: 38px;
+    font-size: 0;
+    text-indent: -9999px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+//    margin-left: 3rem;
+    
+}
+
+.c-hamburger:focus {
+    outline: none;
+}
+
+/**/
+.c-hamburger span {
+    display: block;
+    position: relative;
+    top: 20px;
+//    left: 5px;
+//    right: 18px;
+    height: 4px;
+    background: $primary-color;
+    border-radius: 5px;
+}
+
+.c-hamburger span::before,
+.c-hamburger span::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: $primary-color;
+    content: "";
+    border-radius: 5px;
+}
+
+.c-hamburger span::before {
+    top: -10px;
+}
+
+.c-hamburger span::after {
+    bottom: -10px;
+}
+
+/**/
+
+
+.c-hamburger--htx {
+//    background-color: #ff3264;
+}
+
+.c-hamburger--htx span {
+    transition: background 0s 0.3s;
+}
+
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+.c-hamburger--htx span::before {
+    transition-property: top, transform;
+}
+
+.c-hamburger--htx span::after {
+    transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+.c-hamburger--htx.is-active {
+//    background-color: #cb0032;
+}
+
+.c-hamburger--htx.is-active span {
+    background: none;
+}
+
+.c-hamburger--htx.is-active span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+    transition-delay: 0s, 0.3s;
+}
+
+/*Mobile menu\*/
+.block-huvudmeny-11{
+  padding: 0.8rem;
+}
+.mobil_nav {
+    background: $primary-color;
+  height: 100%;
+    top:110px;
+  opacity: 0;
+  overflow-y: auto;
+  position: absolute;
+  transition: all 0.2s ease-in-out 0s;
+  width: 100%;
+  z-index: -1;
+//    top: 50px;
+
+}
+.mobil_nav.open {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 1000;
+}
+.mobil_nav #main-navigation-content {
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 0;
+    position: relative;
+}
+.mobil_nav.open {
+    pointer-events: all;
+}
+.mobil_nav #main-navigation-content #menu-close {
+  color: #fff;
+  display: block;
+  font-size: 23px;
+  height: 32px;
+  padding: 4px 8px;
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  transition: color 0.2s ease-in-out 0s;
+  width: 32px;
+}
+.mobil_nav #main-navigation-content section:nth-child(2) ul{
+	padding: 0;
+	margin: 0;
+}
+.mobil_nav #main-navigation-content ul {
+    list-style: outside none none;
+//    margin: 15px 0 0;
+    
+//    padding-top: 20px;
+}
+.mobil_nav #main-navigation-content ul li {
+    text-align: center;
+  margin-bottom: 0.3rem;
+  margin-top: 0.3rem;
+}
+//.mobil_nav #main-navigation-content ul > li {
+//  border-bottom: 1px $white dotted;
+//}
+.menu.medium-horizontal > li {
+    display: block !important;
+    text-align: center;
+  
+}
+.mobil_nav #main-navigation-content ul li a {
+  color: #fff;
+  display: block;
+  /*font-weight: 600;*/
+  padding: 0;
+  text-transform: uppercase;
+  transition: color 0.2s ease-in-out 0s;
+  font-size: 1.1rem;
+//  line-height: 1.2rem;
+  
+}
+.mobil_nav #main-navigation-content ul li span {
+  padding: 0;
+  font-size: 1.1rem;
+  font-size: 1.1rem;
+//  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 1.2rem;
+//  margin-bottom: 0.5rem;
+}
+.mobil_nav #main-navigation-content ul li a.active {
+	color: $black;
+	/*text-decoration: underline;*/
+}
+.mobil_nav #main-navigation-content ul ul{
+//  margin-top: 1rem;
+//  margin-bottom: 1rem;
+  background: $primary-color-lighter;
+  padding-bottom: 0.3rem;
+  padding-top: 0.3rem;
+}
+

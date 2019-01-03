@@ -1,0 +1,829 @@
+@import "../functions";
+@import 'components/global';
+@import "components/ultimenu";
+@import "components/megamenu";
+@import "components/monoclickmenu";
+
+////Top bar iconer
+//
+//.fi-mail:before,
+//.fi-mail:before { content: "\f16d"; }
+//.fi-telephone-accessible:before { content: "\f1f7"; }
+//.fi-telephone:before { content: "\f1f8"; }
+//.fi-telephone-accessible:before,
+//.fi-telephone:before,
+// <i class="fi-[icon]"></i> direkt i content
+//a
+
+//--------------- Nyheter-----------------
+.news-list{
+  .item{
+    border-bottom: 1px dotted $jumbo;
+    padding: 1rem 0.5rem;
+  }
+  .item:last-child{
+    border: 0;
+  }
+  a{
+    color: $body-font-color;  
+  }
+  
+  h3:hover{
+    color: $primary-color;
+    
+  }
+  .item:hover{
+    h3{
+      text-decoration: underline;  
+    }
+    div, h3{
+      color:  $primary-color !important;
+//      color:$jumbo;
+      -o-transition:color .2s ease-out, color .2s ease-in;
+      -ms-transition:color .2s ease-out, color .2s ease-in;
+      -moz-transition:color .2s ease-out, color .2s ease-in;
+      -webkit-transition:color .2s ease-out, color .2s ease-in;
+      /* ...and now override with proper CSS property */
+      transition:color .2s ease-out, color .2s ease-in;
+    }
+    
+  }
+}
+
+////////////////////////////////////////
+
+
+
+.gdpr-field{
+  margin-bottom: $column-gutter;
+  .description{
+    font-size: 0.8rem;
+    color: $jumbo;
+  }
+}
+
+
+.content-bottom-box-wrapper section{
+    margin-bottom: $column-gutter;
+}
+// Contact box
+.contact-box-wrapper{
+    background: $gainsboro;
+    padding-top: $column-gutter;
+    h2.block-title{
+        border-bottom: none;
+        font-size: 1.8rem;
+    }
+}
+
+img.logo{
+    max-width: 220px;
+}
+
+//scroll
+.scroll-top {
+    background-color: $primary-color;
+    border-radius: 4px;
+    bottom: 1.5rem;
+    display: none;
+    height: 40px;
+    position: fixed;
+    right: 2rem;
+    text-align: center;
+    width: 40px;
+}
+
+.fi-arrow-up::before {
+    content: "";
+}
+.scroll-top i {
+    color: #ffffff;
+    font-size: 1.7rem;
+    //    margin: 0 0 2.5rem 0;
+    padding: 0;
+}
+.block-toptelefon{
+    p{
+        margin-bottom: 0;
+        i{
+            font-style: normal;
+            font-size: 0.9rem;
+            color: $steel;
+            a{
+                color: $steel;
+            }
+            a:hover{
+                color: $primary-color;
+            }
+        }
+    }
+}
+.top-wrapper-right div{
+    float: RIGHT;
+}
+.language-switcher-language-url{
+    a.language-link{
+        color:$steel;
+        font-size: 0.9rem;
+        padding-left: 0.5rem;
+    }
+    a:hover{
+        color: $primary-color;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        display: block;
+//        text-align: right;
+        li{
+            display:inline-block
+
+        }
+
+    }
+    .is-active a.language-link{
+//        color: $charcoal;
+        display: none;
+    }
+}
+
+//Sök
+.search-button{
+    margin-left: $column-gutter;
+    text-align: right;
+    i.fi-magnifying-glass{
+        cursor: pointer;
+        color: $steel;
+        font-size: 1.2rem;
+    }
+    i.fi-magnifying-glass:hover{
+        color: $black;
+    }
+}
+#search-wrapper{
+    background: $iron;
+    padding-top: $column-gutter;
+    padding-bottom: $column-gutter/6;
+    .js-form-item{
+        float: left;
+        width: 80%;
+    }
+    .form-actions{
+        float: left;
+        width: 10%;
+        margin-left: $column-gutter/4;
+        button, .button {
+            padding: 0.5rem 1rem;
+        }
+    }
+
+}
+.hidden-search{
+    display: none;
+}
+.visible-search{
+    display: block;
+}
+
+
+.produkt-gallery.row{
+    margin-top: $column-gutter;
+}
+.top-wrapper{
+    .top-wrapper-inner{
+        background: $silver;
+        padding: 0.3rem 0;
+        span{
+            margin-right: 1rem;
+        }
+    }
+    border-bottom: $primary-color 5px solid;
+    
+    font-family: 'PT Sans Narrow', sans-serif;
+    
+    header{
+        margin-bottom: $column-gutter;
+        margin-top: $column-gutter;
+        .block-huvudmeny{
+            ul{
+//                text-align: right;
+//                width: 100%;
+//                display: block;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                float: right;
+                li{
+
+                    list-style-type: none;
+                    float: left;
+                    padding-left: 1rem;
+                    a{
+                        color: $black;
+                        font-size: 1.2rem;
+                    }
+                    span:hover, a:hover{
+                        color: $primary-color;
+                    }
+                    span{
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
+
+.main-wrapper.row{
+        margin-top: 1rem;    
+}
+
+#main{
+    .main-page{
+        h1, h2, h3, h4, h5{
+            font-weight: 600;
+        }
+    }
+}
+
+//Aktuellt  
+.aktuellt{
+    .article{
+        padding-bottom: 0.5rem;
+//        margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+      font-size: 0.9rem;
+//      border-top: 1px dotted $aluminum;
+        a{
+            color: $tuatara;
+          
+            
+          
+        }
+        p{
+            color: $tuatara; 
+            margin-bottom: .3rem;
+          font-size: 0.9rem;
+        }
+        .date{
+            color: $primary-color;
+        }
+       
+        h3{
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+    }
+  .article:last-child{
+//    border: none;
+    margin-bottom: 3rem;
+    
+  }
+    .article:hover{
+//        background: $white-smoke;
+      h3, h3 a{
+        text-decoration: underline;
+        color:$primary-color;
+        -o-transition:color .2s ease-out, color .2s ease-in;
+        -ms-transition:color .2s ease-out, color .2s ease-in;
+        -moz-transition:color .2s ease-out, color .2s ease-in;
+        -webkit-transition:color .2s ease-out, color .2s ease-in;
+        /* ...and now override with proper CSS property */
+        transition:color .2s ease-out, color .2s ease-in;
+      }
+      a p, a{
+        color:$primary-color;
+        -o-transition:color .2s ease-out, color .2s ease-in;
+        -ms-transition:color .2s ease-out, color .2s ease-in;
+        -moz-transition:color .2s ease-out, color .2s ease-in;
+        -webkit-transition:color .2s ease-out, color .2s ease-in;
+        /* ...and now override with proper CSS property */
+        transition:color .2s ease-out, color .2s ease-in;
+      }
+     
+    }
+    .grouping-title{
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+        padding-left: 0.4rem;
+        font-size: 0.8rem;
+            color: $charcoal;
+        text-transform: capitalize;
+      font-style: normal;
+      background-color: $smoke;
+      span.date{
+        padding-left: 0.5rem;
+      }
+    }
+}
+.aktuellt.arkiv-block{
+  .article{
+    border-bottom: 1px dotted $iron;
+    padding-top: 0.5rem;
+//    padding-left: 1.5rem;
+    h3{
+      font-weight: 500;
+    }
+  }
+  .grouping-title{
+    margin-bottom: 0;
+  }
+}
+
+
+
+//Produkter\
+
+h2.block-title{
+    font-size: 1.2rem;
+    font-family: 'PT Sans Narrow', sans-serif;
+    border-bottom: dotted $primary-color 1px;
+    color: $steel;
+    margin-bottom: $column-gutter/2;
+  padding-left: 0.5rem;
+}
+.path-frontpage h1{
+    font-size: 1.2rem;
+    font-family: 'PT Sans Narrow', sans-serif;
+//    border-bottom: dotted $primary-color 1px;
+    font-weight: 400 !important;
+    color: $steel;
+}
+.prod-info{
+    .r{
+        font-size: 0.80rem;
+        border-bottom: dotted $silver 1px;
+        padding: 0.4rem 0;
+        .prod-rub{
+            font-weight: 400;
+            width: 85px;
+//            float: left;
+            display: inline-block;
+                color: $steel;
+            text-transform: uppercase;
+        }  
+        .kat{
+            display: inline-block
+        }
+        
+        th{
+            color: $steel;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 0.70rem;
+        }
+        table tr th, table tr td{
+            padding:  $column-gutter/8 $column-gutter/3;
+        }
+        table{
+            margin-bottom:$column-gutter/8; 
+        }
+    }
+    
+    .r:last-child{
+        border: none;
+    }
+}
+// ====== ================== Produktlistningen  ====================
+$hastighet: .1s;
+.products-termpage{
+  .row{
+    border-bottom: 1px solid $silver;
+    padding: $column-gutter 0;
+  }
+
+  .row:last-child{
+    border: none;
+  }
+ 
+    h3{
+      font-size: 1.2rem;
+      margin: 0;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    p{
+        color: $tuatara;
+        margin-bottom: .3rem;
+        font-size: .85rem;
+    }
+    .subtitle{
+      font-size: 1rem;
+      font-style: italic;
+      padding-left: 0.5rem;
+      border-left: dotted 1px $base;
+    } 
+    .body{
+      font-size: .8rem;
+      color: $tuatara;
+    }
+
+  
+    a.item:hover{
+      
+        img{
+           opacity: 0.8;
+          -o-transition:color $hastighet ease-out, opacity $hastighet ease-in;
+          -ms-transition:color $hastighet ease-out, opacity $hastighet ease-in;
+          -moz-transition:color $hastighet ease-out, opacity $hastighet ease-in;
+          -webkit-transition:color $hastighet ease-out, opacity $hastighet ease-in;
+            /* ...and now override with proper CSS property */
+          transition:color $hastighet ease-out, opacity $hastighet ease-in;
+        }
+
+        p,h3,a{
+          color:$jumbo;
+          -o-transition:color $hastighet ease-out, color $hastighet ease-in;
+          -ms-transition:color $hastighet ease-out, color $hastighet ease-in;
+          -moz-transition:color $hastighet ease-out, color $hastighet ease-in;
+          -webkit-transition:color $hastighet ease-out, color $hastighet ease-in;
+            /* ...and now override with proper CSS property */
+          transition:color $hastighet ease-out, color $hastighet ease-in;
+        }
+    }
+}
+.related-list{
+  .item{
+    border-bottom: 1px $gainsboro dotted;
+    padding-top: $column-gutter/3;
+    padding-bottom: $column-gutter/3;
+    h5{
+      font-size: 1rem;
+      margin: 0;
+    }
+    div{
+      font-size: 0.85rem
+    }
+  }
+  .item:last-child{
+    border-bottom: none;
+  }
+}
+.karusell-wrapper{
+  padding-top: $column-gutter;
+  padding-bottom: $column-gutter;
+  border-top: $base dotted 1px;
+    
+    
+  .leverantorer-slick{
+    .slick-slide{
+      div{
+        div{
+          height: 100px;
+          position: relative;
+          img{
+            -webkit-filter: grayscale(10%); /* Safari 6.0 - 9.0 */
+            filter: grayscale(100%);
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+  }
+}
+.footer-wrapper{
+    background: $primary-color; 
+    color: $white;
+}
+.bottom-bar.panel{
+    background: $jet;
+    margin-bottom: 0;
+    border: none;
+    color: $white;
+}
+
+
+//Produkter front\
+
+
+.prod-front{
+    p{
+//        clear: both; //TMP
+        margin-bottom: 0;
+    }
+    a{
+//        clear: both;
+        color: $body-font-color;
+    }
+    clear: both;
+    .top-pos:first-child{
+        width: 100%;
+    }
+    .top-pos{
+        width: 100%;
+    };
+    .left-pos:first-child{
+        float:left;
+//        display: block;
+        width: 30%;
+    }
+    .left-pos:last-child{
+//        display: block;
+        float:left;
+        width: 60%;
+        padding-left: $column-gutter/2;
+    };
+    .right-pos:first-child{
+        float:right;
+        width: 30%;
+    }
+    .right-pos:last-child{
+        float:right;
+        width: 70%;
+    };
+    border-bottom: dotted $base 1px;
+    padding-bottom: $column-gutter;
+    padding-top: $column-gutter;
+    h4{
+        margin-bottom: 0;
+    }
+}
+.prod-front:last-child{
+    border:none;
+}
+.prod-front:hover{
+//    border:none;
+}
+
+// ===================== Produktmeny i vänsterspalt ==============================
+#block-huvudmeny-2{
+  //generella =====
+  background: $white-smoke;
+  padding: 0.5rem 0;
+  li{
+    list-style-type: none;
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+  ul{
+    padding: 0;
+    margin: 0;
+  }
+  a{
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 0.9rem;
+  }
+  a:hover{
+    color: $primary-color;
+    -o-transition:color $hastighet ease-out, color $hastighet ease-in;
+    -ms-transition:color $hastighet ease-out, color $hastighet ease-in;
+    -moz-transition:color $hastighet ease-out, color $hastighet ease-in;
+    -webkit-transition:color $hastighet ease-out, color $hastighet ease-in;
+    /* ...and now override with proper CSS property */
+    transition:color $hastighet ease-out, color $hastighet ease-in;
+  }
+  a.is-active{
+    color: $primary-color;
+  }
+  ul li a{
+    color: $black;
+    margin-left: 1rem;
+    border-bottom: dotted $base 1px;
+    text-transform: uppercase;
+  }
+  ul > li > ul > li > a{
+    color: $tuatara;
+    border: none;
+    text-transform: inherit;
+    margin: 0;
+    margin-left: 0.5rem;
+  }
+  
+  // =========
+  .menu{
+    ul{
+      li{
+        padding-left: 1rem;
+      }
+    }
+  } 
+}
+//=================================
+
+
+// ============================ Slick Sliders ============================
+
+.slider{
+    background: $oil;
+  
+}
+// Preloader för SLIK slider
+
+.produkt-slider,
+.front-slider{
+    visibility:hidden;
+    opacity:0;	 
+    transition: opacity 1s;
+    .slick-slide{
+        display:none;
+    }
+    .slick-slide:first-child{
+        display:block; 
+        visibility:hidden;
+    } 
+}
+
+.produkt-slider.slick-initialized,
+.front-slider.slick-initialized{
+    visibility:visible;
+    opacity:1;
+    .slick-slide{
+        display:block;
+        visibility:visible!important;
+    }
+}
+
+// end preloader
+
+
+.produkt-slider{
+  border: dotted 1px #d1d1d1;
+    .slick-dots{
+        li button::before{
+            font-size: 14px;
+          margin-top: 0.2rem;
+        }
+      
+    }
+    .slick-list {
+//        padding-bottom: 1rem; 
+    }
+  cursor: move;
+}
+.front-slider{
+    
+    .slick-dots{
+      
+        li button::before{
+            font-size: 16px;
+        }
+      
+    }
+    .slick-list {
+        margin-bottom: 1rem;
+        
+    }
+    
+    
+    img{
+//        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    // texten
+    .slider-body{ 
+        position: absolute;
+        display: none;
+        z-index: 999;
+        top: 0;
+        width: 100%;
+        
+        h1,h2,h3,h4,h5,p{
+            color: $white;
+            display: block;
+
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+        h1,h2,h3,h4,h5{
+            font-weight: 600;
+        }
+        // Small screens
+        
+        @media only screen and (max-width: 40em) { 
+            padding: 1rem;
+            margin-top: 0;
+            p,h1,h2,h3,h4,h5{
+                width: 100%;
+            }
+            h3{
+                font-size: 1.5rem;
+            }
+            .slick-dots{
+                display: none;
+            }
+        } 
+
+        // Medium screens
+        @media only screen and (min-width: 40.063em) and (max-width: 64em) {
+            padding: 1rem;
+            margin-top: 0;
+            p,h1,h2,h3,h4,h5{
+                width: 80%;
+            }
+            h3{
+                font-size: 2.5rem;
+            }
+        } 
+
+        // Large screens
+        @media only screen and (min-width: 64.063em) { 
+            padding: 2rem;
+            margin-top: 2rem;
+            p,h1,h2,h3,h4,h5{
+                width: 60%;
+            }
+            h3{
+                font-size: 2.5rem;
+            }
+        } 
+    }
+}
+.staff{
+  .row{
+    border-bottom: solid $silver 1px;
+    padding: $column-gutter 0;  
+  
+  
+    h4{
+        font-size: 1.1rem;
+        margin-bottom: 0;
+        font-weight: 600;
+    }
+    p{
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+    a{
+        display: block;
+        font-size: 0.9rem;
+    }
+  }
+}
+
+.panel.callout {
+  border-style: none !important;
+  border-width: 0px !important;
+  border-color: none !important;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background: none !important;
+  color: #333333;
+}
+
+
+.nav-bar a{
+  color: $body-font-color;
+}
+.top-wrapper header .block-huvudmeny ul li a.is-active,
+.top-wrapper header .block-huvudmeny ul li.menu-item--active-trail span{
+  color: $primary-color;
+}
+.menu-item--expanded a{
+  color: $body-font-color;
+}
+.menu-item--expanded .menu-item--active-trail a.is-active{
+  color: $primary-color;
+}
+ul.menu{
+  margin: 0;
+  padding: 0;
+}
+.block-huvudmeny-11 .menu-item--expanded .menu{
+  display: none;
+  padding: 0;
+  margin:0;
+}
+.block-huvudmeny-11 .menu-item--expanded span:after {
+  content: " +";
+}
+@media only screen and (max-width: 40em) { 
+  .breadcrumbs{
+//    display: none;
+  }
+//  .main-wrapper.row {
+//    margin-top: 0;
+//  }
+  
+} 
+.breadcrumbs li{
+  margin-bottom: 0.5rem;
+}
+#sidebar-second{
+  section{
+    margin-bottom: 1.5rem;
+  }
+}
+button, .button {
+  padding: 0.6rem 1rem; 
+}
+.views-field-field-subtitle{
+  h2{
+    font-size: 1.3rem;
+  }
+}
+.view-mode-full{
+  .image{
+    margin-bottom: 1rem;
+  }
+}
