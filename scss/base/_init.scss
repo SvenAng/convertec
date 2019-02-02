@@ -14,7 +14,20 @@
 //.fi-telephone:before,
 // <i class="fi-[icon]"></i> direkt i content
 //a
-
+//.dialog-off-canvas-main-canvas, .outer-wrap, .inner-wrap, .main-wrapper{
+//    height: 100%;   
+//}
+.outer-wrap{
+//    background: $white;
+//    background: red;
+}
+.outer{
+//    background: green;
+    padding: $column-gutter/2;
+}
+.dialog-off-canvas-main-canvas, .off-canvas-wrap, .bottom-bar{
+    height: 100%;
+}
 //--------------- Nyheter-----------------
 .news-list{
   .item{
@@ -495,10 +508,11 @@ $hastighet: .1s;
     color: $white;
 }
 .bottom-bar.panel{
-    background: $jet;
+    background: $jet; 
     margin-bottom: 0;
     border: none;
     color: $white;
+//    height: 100%;
 }
 
 

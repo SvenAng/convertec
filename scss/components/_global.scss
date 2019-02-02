@@ -339,7 +339,7 @@ $font-weight-normal: normal !default;
 $font-weight-bold: bold !default;
 
 // We use these to control various global styles
-$body-bg: #fff !default;
+$body-bg: transperant !default;
 $body-font-color: #222 !default;
 $body-font-family: $font-family-sans-serif !default;
 $body-font-weight: $font-weight-normal !default;
@@ -524,6 +524,7 @@ $cursor-text-value: text !default;
       margin: 0;
       padding: 0;
       position: relative;
+    height: 100%;
     }
 
   a:hover { cursor: $cursor-pointer-value; }
