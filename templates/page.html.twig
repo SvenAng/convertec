@@ -1,340 +1,333 @@
 {#
 /**
-* @file
-* Zurb Foundations's theme implementation to display a single page.
-*
-* Available variables:
-*
-* General utility variables:
-* - base_path: The base URL path of the Drupal installation. Will usually be
-* "/" unless you have installed Drupal in a sub-directory.
-* - is_front: A flag indicating if the current page is the front page.
-* - logged_in: A flag indicating if the user is registered and signed in.
-* - is_admin: A flag indicating if the user has permission to access
-* administration pages.
-*
-* Site identity:
-* - front_page: The URL of the front page. Use this instead of base_path when
-* linking to the front page. This includes the language domain or prefix.
-* - logo: The url of the logo image, as defined in theme settings.
-* - linked_logo: The logo image, linked to <front>.
-    * - site_name: The name of the site. This is empty when displaying the site
-    * name has been disabled in the theme settings.
-    * - linked_site_name: The name of the site that also links to <front>.
-        * - site_slogan: The slogan of the site. This is empty when displaying the site
-        * slogan has been disabled in theme settings.
-        * - hide_site_name: A flag indicating if the site name has been toggled off on
-        * the theme settings page. If hidden, the "visually-hidden" class is added
-        * to make the site name visually hidden, but still accessible.
-        * - hide_site_slogan: A flag indicating if the site slogan has been toggled off
-        * on the theme settings page. If hidden, the "visually-hidden" class is
-        * added to make the site slogan visually hidden, but still accessible.
-        *
-        * Page content (in order of occurrence in the default page.html.twig):
-        * - messages: Status and error messages. Should be displayed prominently.
-        * - node: Fully loaded node, if there is an automatically-loaded node
-        * associated with the page and the node ID is the second argument in the
-        * page's path (e.g. node/12345 and node/12345/revisions, but not
-        * comment/reply/12345).
-        *
-        * Regions:
-        * - page.meta_header
-        * - page.header
-        * - page.help
-        * - page.highlighted
-        * - page.content
-        * - page.sidebar_first
-        * - page.sidebar_second
-        * - page.footer_first
-        * - page.footer_middle
-        * - page.footer_last
-        *
-        * @see template_preprocess_page()
-        * @see bartik_preprocess_page()
-        * @see html.html.twig
-        */
-        #}
-        <aside>
-            {% if page.m_nav %}
+ * @file
+ * Zurb Foundations's theme implementation to display a single page.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ * - logo: The url of the logo image, as defined in theme settings.
+ * - linked_logo: The logo image, linked to <front>.
+ * - site_name: The name of the site. This is empty when displaying the site
+ *   name has been disabled in the theme settings.
+ * - linked_site_name: The name of the site that also links to <front>.
+ * - site_slogan: The slogan of the site. This is empty when displaying the site
+ *   slogan has been disabled in theme settings.
+ * - hide_site_name: A flag indicating if the site name has been toggled off on
+ *   the theme settings page. If hidden, the "visually-hidden" class is added
+ *   to make the site name visually hidden, but still accessible.
+ * - hide_site_slogan: A flag indicating if the site slogan has been toggled off
+ *   on the theme settings page. If hidden, the "visually-hidden" class is
+ *   added to make the site slogan visually hidden, but still accessible.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - messages: Status and error messages. Should be displayed prominently.
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.meta_header
+ * - page.header
+ * - page.help
+ * - page.highlighted
+ * - page.content
+ * - page.sidebar_first
+ * - page.sidebar_second
+ * - page.footer_first
+ * - page.footer_middle
+ * - page.footer_last
+ *
+ * @see template_preprocess_page()
+ * @see bartik_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <aside class="left-off-canvas-menu" role="complementary">
+      {{ page.left_off_canvas }}
+    </aside>
+
+    <aside class="right-off-canvas-menu" role="complementary">
+      {{ page.right_off_canvas }}
+    </aside>
+    <aside>
+        {% if page.m_nav %}
             <div id="main-navigation" class="mobil_nav">
                 <div id="main-navigation-content">
                     {{ page.m_nav }}
                 </div>
-            </div>
+        </div>
+        {% endif %}  
+    </aside>  
+      <div class="top-wrapper">
+          <div class="top-wrapper-inner hide-for-small-only">  
+              <div class="row">
+          {% if page.meta_header_l %}
+
+                      <div class="medium-6  columns">
+
+                          {{ page.meta_header_l }}
+
+                      </div>
+
             {% endif %}
-        </aside>
-        <div class="off-canvas-wrap" data-offcanvas>
-            <div class="row outer">
-                <div class="outer-wrap columns samll-12">
-                    <div class="inner-wrap">
-<!--
-                        <aside class="left-off-canvas-menu" role="complementary">
-                            {{ page.left_off_canvas }}
-                        </aside>
+                  
+            {% if page.meta_header_r %}
 
-                        <aside class="right-off-canvas-menu" role="complementary">
-                            {{ page.right_off_canvas }}
-                        </aside>
--->
-                       
-                        <div class="top-wrapper">
-                            <div class="top-wrapper-inner hide-for-small-only">
-                                <div class="row">
-                                    {% if page.meta_header_l %}
-
-                                    <div class="medium-6  columns">
-
-                                        {{ page.meta_header_l }}
-
-                                    </div>
-
-                                    {% endif %}
-
-                                    {% if page.meta_header_r %}
-
-                                    <div class="medium-6 columns top-wrapper-right">
-                                        <div class="search-button"><i class="fi-magnifying-glass"></i></div>
-                                        {{ page.meta_header_r }}
-                                    </div>
-                                    <!--                <div class="medium-1 columns search-button"><i class="fi-magnifying-glass"></i></div>-->
-                                    {% endif %}
-                                    <!--              <div class="medium-1 columns search-button"><i class="fi-magnifying-glass"></i></div>-->
-                                </div>
-                            </div>
-                            <div id="search-wrapper" class="hidden-search">
-                                <div class="search-inner row">
-                                    <div class="columns medium-8 medium-centered">
-                                        {{ page.search_a }}
-                                    </div>
-                                </div>
-                            </div>
-                            <header class="row" role="banner" aria-label="{{ 'Site header'|t }}">
-                                <div class="hide-for-small-only">
-                                    {% if page.mega_1 %}
-                                    <div class="megamenu mega-1 hidemega">
-                                        <div class="inner clearfix">
-                                            {{ page.mega_1 }}
-                                        </div>
-                                    </div>
-                                    {% endif %}
-                                    {% if page.mega_2 %}
-                                    <div class="megamenu mega-2 hidemega">
-                                        <div class="inner clearfix">
-                                            {{ page.mega_2 }}
-                                        </div>
-                                    </div>
-                                    {% endif %}
-                                </div>
-
-                                <!-- ======== synlig header ===========  -->
-
-                                {% if linked_site_name or linked_logo %}
-                                <div class="medium-3 small-9 columns">
-                                    {% if linked_logo %}
-                                    {{ linked_logo }}
-                                    {% endif %}
-                                </div>
-                                {% endif%}
-
-                                {% if page.d_nav %}
-                                <div class="medium-9 hide-for-small-only columns">
-                                    {{ page.d_nav }}
-                                </div>
-                                {% endif %}
-
-                                <div class="navigation-top-bar show-for-small-only small-3 columns">
-                                    <div class="inner">
-                                        <div class="menu-ball">
-                                            <div class="c-hamburger c-hamburger--htx">
-                                                <a href="#"><span></span></a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!--=======================================  -->
-
-
-                            </header>
-
-
-
+                    <div class="medium-6 columns top-wrapper-right">
+                        <div class="search-button"><i class="fi-magnifying-glass"></i></div>
+                        {{ page.meta_header_r }}
+                  </div>
+<!--                <div class="medium-1 columns search-button"><i class="fi-magnifying-glass"></i></div>-->
+            {% endif %}
+<!--              <div class="medium-1 columns search-button"><i class="fi-magnifying-glass"></i></div>-->
+              </div> 
+          </div>
+          <div id="search-wrapper" class="hidden-search">
+              <div class="search-inner row">
+                  <div class="columns medium-8 medium-centered">
+                      {{ page.search_a }}
+                  </div>
+              </div>
+          </div>
+          <header class="row" role="banner" aria-label="{{ 'Site header'|t }}">
+              <div class="hide-for-small-only">
+              {% if page.mega_1 %}
+                  <div class="megamenu mega-1 hidemega">
+                      <div class="inner clearfix">
+                          {{ page.mega_1 }}
+                      </div>
+              </div>
+              {% endif %}
+              {% if page.mega_2 %}
+                  <div class="megamenu mega-2 hidemega">
+                        <div class="inner clearfix">
+                            {{ page.mega_2 }}
                         </div>
-
-                        {% if page.top_slider %}
-                        <div class="slider">
-                            <!--              <div class="large-12 columns">-->
-                            {{ page.top_slider }}
-                            <!--              </div>-->
-                        </div>
-                        {% endif %}
-
-                        {% if page.header %}
-                        <div class="row head">
-                            <div class="large-12 columns hide-for-small-only">
-                                {{ page.header }}
-                            </div>
-                        </div>
-                        {% endif %}
-
-
-                        <div class="row">
-                            {% if show_account_info %}
-                            <div class="{{ site_slogan ? 'large-6' : 'large-4 columns large-offset-8' }} columns hide-for-small">
-                                <p>
-                                    {% if logged_in %}
-                                    <a href="{{ path('user.page') }}">{{ 'My Account'|t }}</a>
-                                    <a href="{{ path('user.logout') }}">{{ 'Logout'|t }}</a>
-                                    {% else %}
-                                    <a href="{{ path('user.login') }}">{{ 'Login'|t }}</a>
-                                    <a href="{{ path('user.register') }}">{{ 'Sign Up'|t }}</a>
-                                    {% endif %}
-                                </p>
-                            </div>
-                            {% endif %}
-                            {% if site_slogan %}
-                            <div class="large-6 columns hide-for-small">
-                                {{ site_slogan }}
-                            </div>
-                            {% endif %}
-                            {% if show_account_info %}
-                            <div class="show-for-small">
-                                <div class="six mobile-two columns">
-                                    <p>
-                                        <a href="{{ path('user.login') }}" class="radius button">{{ 'Login'|t }}</a>
-                                    </p>
-                                </div>
-                                <div class="six mobile-two columns">
-                                    <p>
-                                        <a href="{{ path('user.register') }}" class="radius success button">{{ 'Sign Up'|t }}</a>
-                                    </p>
-                                </div>
-                            </div>
-                            {% endif %}
-                        </div>
-
-                        {% if messages and not zurb_foundation_messages_modal %}
-                        <div class="l-messages row">
-                            <div class="large-12 columns">
-                                {{ messages }}
-                            </div>
-                        </div>
-                        {% endif %}
-
-                        {% if page.help %}
-                        <div class="l-help row">
-                            <div class="large-12 columns">
-                                {{ page.help }}
-                            </div>
-                        </div>
-                        {% endif %}
-
-                        <!--      Dessa divvar syns hela tiden-->
-
-
-
-                        <div class="row main-wrapper">
-
-                            <div class="inner-left-wrapper columns {{ main_grid }}">
-
-                                {% if page.produkt_gallery %}
-                                <div class="produkt-gallery">
-                                    {{ page.produkt_gallery }}
-                                </div>
-                                {% endif %}
-
-                                <main id="main" role="main">
-                                    {% if page.highlighted %}
-                                    {% spaceless %}
-                                    {{ page.highlighted }}
-                                    {% endspaceless %}
-                                    {% endif %}
-                                    <a id="main-content"></a>
-                                    {% if breadcrumb %} {{ breadcrumb }} {% endif %}
-                                    <section class="main-page">
-                                        {{ page.content }}
-                                    </section>
-                                </main>
-                            </div>
-
-                            <!-- Sidebar för page-->
-                            {% if page.sidebar_first %}
-                            <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
-
-                                {{ page.sidebar_first }}
-                            </div>
-                            {% endif %}
-
-                            {% if page.sidebar_second %}
-                            <div id="sidebar-second" class="{{ sidebar_sec_grid }} y columns sidebar">
-                                {{ page.sidebar_second }}
-                            </div>
-                            {% endif %}
-
-                        </div>
-
-                        {% if page.content_bottom %}
-                        <div class="content-bottom-box-wrapper">
-                            <div class="row">
-                                {{ page.content_bottom }}
-                            </div>
-                        </div>
-                        {% endif %}
-
-                        {% if page.contact_box %}
-                        <div class="contact-box-wrapper">
-                            <div class="row">
-                                <div class="columns small-12 medium-8 medium-centered">
-                                    {{ page.contact_box }}
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-
-                        {% if page.under_karusell %}
-                        <div class="karusell-wrapper">
-                            <div class="row">
-                                {{ page.under_karusell }}
-                            </div>
-                        </div>
-                        {% endif %}
-
-                        <div class="footer-wrapper">
-                            {% if page.footer_first or page.footer_middle or page.footer_last %}
-                            <footer class="row">
-                                {% if page.footer_first %}
-                                <div id="footer-first" class="large-4 columns">
-                                    {{ page.footer_first }}
-                                </div>
-                                {% endif %}
-                                {% if page.footer_middle %}
-                                <div id="footer-middle" class="large-4 columns">
-                                    {{ page.footer_middle }}
-                                </div>
-                                {% endif %}
-                                {% if page.footer_last %}
-                                <div id="footer-last" class="large-4 columns">
-                                    {{ page.footer_last }}
-                                </div>
-                                {% endif %}
-                            </footer>
-                            {% endif %}
-                        </div>
-                        
-
-                        <a class="exit-off-canvas"></a>
-                        <a href="#0" class="scroll-top" style="display: inline;">
-                            <i class="fi-arrow-up"></i>
-                        </a>
                     </div>
+              {% endif %}
+              </div>
+              
+<!-- ======== synlig header ===========  -->
+              
+            {% if linked_site_name or linked_logo %}
+              <div class="medium-3 small-9 columns">
+                {% if linked_logo %}
+                  {{ linked_logo }}
+                {% endif %}
+              </div>
+            {% endif%}
+            
+            {% if page.d_nav %}
+                <div class="medium-9 hide-for-small-only columns">
+                    {{ page.d_nav }}
                 </div>
+            {% endif %}
+               
+              <div class="navigation-top-bar show-for-small-only small-3 columns">
+                  <div class="inner">
+                      <div class="menu-ball">
+                          <div class="c-hamburger c-hamburger--htx">
+                              <a href="#" ><span></span></a>
+                          </div>
+                      </div>
+                      
+                  </div>
+              </div> 
+              
+<!--=======================================  -->
+              
+    
+          </header>
+          
+          
+      
+      </div>
+      
+      {% if page.top_slider %}
+          <div class="slider">
+<!--              <div class="large-12 columns">-->
+                  {{ page.top_slider }}
+<!--              </div>-->
+      </div>
+      {% endif %}
+      
+      {% if page.header %}
+        <div class="row head">
+          <div class="large-12 columns hide-for-small-only">
+            {{ page.header }}
+          </div>
+        </div>
+      {% endif %}
+      
+
+      <div class="row">
+        {% if show_account_info %}
+          <div class="{{ site_slogan ? 'large-6' : 'large-4 columns large-offset-8' }} columns hide-for-small">
+            <p>
+              {% if logged_in %}
+                <a href="{{ path('user.page') }}">{{ 'My Account'|t }}</a>
+                <a href="{{ path('user.logout') }}">{{ 'Logout'|t }}</a>
+              {% else %}
+                <a href="{{ path('user.login') }}">{{ 'Login'|t }}</a>
+                <a href="{{ path('user.register') }}">{{ 'Sign Up'|t }}</a>
+              {% endif %}
+            </p>
+          </div>
+        {% endif %}
+        {% if site_slogan %}
+          <div class="large-6 columns hide-for-small">
+            {{ site_slogan }}
+          </div>
+        {% endif %}
+        {% if show_account_info %}
+          <div class="show-for-small">
+            <div class="six mobile-two columns">
+              <p>
+                <a href="{{ path('user.login') }}" class="radius button">{{ 'Login'|t }}</a>
+              </p>
             </div>
-            <div class="bottom-bar panel">
-                <div class="row">
-                    <div class="large-12 columns">
-                        &copy; {{ "now"|date('Y') }} {{ site_name }} {{ 'All rights reserved.'|t }}
-                    </div>
-                </div>
+            <div class="six mobile-two columns">
+              <p>
+                <a href="{{ path('user.register') }}" class="radius success button">{{ 'Sign Up'|t }}</a>
+              </p>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if messages and not zurb_foundation_messages_modal %}
+      <div class="l-messages row">
+        <div class="large-12 columns">
+          {{ messages }}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if page.help %}
+      <div class="l-help row">
+        <div class="large-12 columns">
+          {{ page.help }}
+        </div>
+      </div>
+      {% endif %}
+      
+<!--      Dessa divvar syns hela tiden-->
+      
+      
+      
+      <div class="row main-wrapper">
+          
+        <div class="inner-left-wrapper columns {{ main_grid }}">
+          
+          {% if page.produkt_gallery %}
+            <div class="produkt-gallery">
+              {{ page.produkt_gallery }}
+          </div>
+          {% endif %}
+          
+          <main id="main" role="main">
+            {% if page.highlighted %}
+              {% spaceless %}
+                {{ page.highlighted }}
+              {% endspaceless %}
+            {% endif %}
+            <a id="main-content"></a>
+            {% if breadcrumb %} {{ breadcrumb }} {% endif %}
+            <section class="main-page">
+              {{ page.content }}
+              </section>
+          </main>
+        </div>
+                  
+          <!-- Sidebar för page-->
+        {% if page.sidebar_first %}
+        <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
+            
+            {{ page.sidebar_first }}
+        </div>
+        {% endif %}
+          
+          {% if page.sidebar_second %}
+            <div id="sidebar-second" class="{{ sidebar_sec_grid }} y columns sidebar">
+              {{ page.sidebar_second }}
+            </div>
+          {% endif %}
+        
+      </div>
+    
+      {% if page.content_bottom %}
+          <div class="content-bottom-box-wrapper">
+            <div class="row">
+                {{ page.content_bottom }}
+            </div>
+            </div>
+      {% endif %}
+      
+      {% if page.contact_box %}
+          <div class="contact-box-wrapper">
+            <div class="row">
+                <div class="columns small-12 medium-8 medium-centered">
+                    {{ page.contact_box }}
+                </div>    
             </div>
         </div>
+      {% endif %}
+      
+      {% if page.under_karusell %}
+          <div class="karusell-wrapper">
+              <div class="row">
+                  {{ page.under_karusell }}
+              </div>      
+          </div>
+      {% endif %}
+      
+      <div class="footer-wrapper">
+      {% if page.footer_first or page.footer_middle or page.footer_last %}
+        <footer class="row">
+          {% if page.footer_first %}
+            <div id="footer-first" class="large-4 columns">
+              {{ page.footer_first }}
+            </div>
+          {% endif %}
+          {% if page.footer_middle %}
+            <div id="footer-middle" class="large-4 columns">
+              {{ page.footer_middle }}
+            </div>
+          {% endif %}
+          {% if page.footer_last %}
+            <div id="footer-last" class="large-4 columns">
+              {{ page.footer_last }}
+            </div>
+          {% endif %}
+        </footer>
+      {% endif %}
+      </div>  
+      <div class="bottom-bar panel">
+        <div class="row">
+          <div class="large-12 columns">
+          &copy; {{ "now"|date('Y') }} {{ site_name }} {{ 'All rights reserved.'|t }}
+          </div>
+        </div>
+      </div>
+
+    <a class="exit-off-canvas"></a>
+      <a href="#0" class="scroll-top" style="display: inline;">
+          <i class="fi-arrow-up"></i>
+      </a>
+  </div> 
+</div>

@@ -62,7 +62,9 @@
             dots: true,
             arrows: true,
             cssEase: 'linear',
-            fade: true
+            fade: true,
+            variableWidth: true,
+            centerMode: true
         });
         
         jQuery('.produkt-slider').slick({

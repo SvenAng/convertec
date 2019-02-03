@@ -316,19 +316,7 @@ $success-color: #43AC6A !default;   // sea-green
 $warning-color: #f08a24 !default;   // carrot
 $info-color: #a0d3e8 !default;      // cornflower
 
-// Google fonter
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700');
-@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
-/*
 
-font-family: 'PT Sans', sans-serif;
-
-font-family: 'PT Sans Narrow', sans-serif;
-
-font-family: 'Open Sans', sans-serif;
-
-*/
 // We use these to define default font stacks
 $font-family-sans-serif: "PT Sans", sans-serif !default;
 $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif !default;
@@ -339,7 +327,7 @@ $font-weight-normal: normal !default;
 $font-weight-bold: bold !default;
 
 // We use these to control various global styles
-$body-bg: transperant !default;
+$body-bg: $jet !default;
 $body-font-color: #222 !default;
 $body-font-family: $font-family-sans-serif !default;
 $body-font-weight: $font-weight-normal !default;
@@ -524,7 +512,6 @@ $cursor-text-value: text !default;
       margin: 0;
       padding: 0;
       position: relative;
-    height: 100%;
     }
 
   a:hover { cursor: $cursor-pointer-value; }
