@@ -59,8 +59,9 @@
         }
 
     }
+
     @media only screen and (max-width: 40em) {
-        .news-image{
+        .news-image {
             margin-bottom: $column-gutter/1.5;
         }
 
@@ -527,14 +528,14 @@ $hastighet: .1s;
             transition: color $hastighet ease-out, color $hastighet ease-in;
         }
     }
-    
+
     @media only screen and (max-width: 40em) {
-        .bild{
+        .bild {
             margin-bottom: $column-gutter/1.5;
         }
 
     }
-    
+
 }
 
 .related-list {
@@ -660,7 +661,8 @@ $hastighet: .1s;
     h4 {
         margin-bottom: 0;
     }
-    .bild{
+
+    .bild {
         margin-bottom: $column-gutter/3;
     }
 }
@@ -736,6 +738,36 @@ $hastighet: .1s;
 
 //=================================
 
+// ========================== Taxonomi termsidor ==============================
+.path-taxonomy {
+    .field-taxonomy-term--field-logotype {
+        margin-bottom: $column-gutter; 
+        img {
+            max-width: 200px;
+            height: auto;
+//            clear: both;
+        }
+
+//        width: 20%;
+        //    float: left;
+//        display: inline-block;
+//        float: right;
+    }
+
+    .field-taxonomy-term--description {
+        //    float: left;
+//        display: inline-block;
+//        float: right;
+//        width: 78%;
+    }
+    header{
+//        clear: both;
+//        display: block;
+//        border-bottom: 1px #888 dashed;
+    }
+}
+
+// --------------------------------------------------------------------------
 
 // ============================ Slick Sliders ============================
 
@@ -795,7 +827,7 @@ $hastighet: .1s;
 }
 
 .front-slider {
-    
+
     .slick-dots {
 
         li button::before {
@@ -804,21 +836,19 @@ $hastighet: .1s;
 
     }
 
-    .slick-list {
-        
+    .slick-list {}
 
-    }
-    .slick-track{ 
-        
-    }
+    .slick-track {}
+
     .slick-slide {
-//        height: 100%;
+        //        height: 100%;
     }
 
     .slick-slide img {
-//        height:400px;
-//        width: auto;
+        //        height:400px;
+        //        width: auto;
     }
+
     img {
         //        text-align: center;
         margin-left: auto;
@@ -877,7 +907,8 @@ $hastighet: .1s;
             .slick-dots {
                 display: none;
             }
-            .slick-slide{
+
+            .slick-slide {
                 height: 400px !important;
             }
         }
