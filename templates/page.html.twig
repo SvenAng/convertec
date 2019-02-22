@@ -255,11 +255,12 @@
         </div>
                   
           <!-- Sidebar för page-->
-        {% if page.sidebar_first %}
-        <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
-            
-            {{ page.sidebar_first }}
-        </div>
+        {% if page.region_name.huvudmeny_2|render is not same as('') %}
+            {% if page.sidebar_first %}
+                <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
+                    {{ page.sidebar_first }}
+                </div>
+            {% endif %}
         {% endif %}
           
           {% if page.sidebar_second %}

@@ -10,7 +10,7 @@
    */
   Drupal.behaviors.exampleBehavior = {
     attach: function (context, settings) {
-      
+//        jQuery('.megamenu span').addClass('fans');
       // special för activa länkar
       var pathArray = location.pathname.split( '/' );
       var secondLevelLocation = pathArray[1];
@@ -21,6 +21,12 @@
       }else if(secondLevelLocation == "leverantor"){
         $("li .expand ._lev_").toggleClass("is-active");
       }
+        // dödar länkar för dropdown
+        jQuery('.menu .dropdown').click(function () {
+          return false;
+        });
+        
+        
       // sökblocket
       jQuery(".search-button").click(function(){
           jQuery('#search-wrapper').slideToggle();
@@ -37,7 +43,10 @@
         });
         
         jQuery('.has-flyout .has-flyout .expand-indicator').text('');
-        
+        jQuery(".block-huvudmeny-11 .dropdown").click(function(){ 
+            jQuery(this).next().slideToggle(); 
+
+        }); 
 //        jQuery("ul.mobile-menu-root > li.has-flyout > .expand span").click(function(){ 
       jQuery(".block-huvudmeny-11 .menu-item--expanded span").click(function(){ 
         jQuery(this).next().slideToggle(); 
@@ -118,7 +127,7 @@
         var interval = 1;
 
         setInterval(function(){
-            if(interval == 25){
+            if(interval == 425){
                 /* if intervall reaches 5 the user is inactive hide element/s */
                 jQuery(".mega-2").removeClass("show");
                 jQuery(".mega-1").removeClass("show");

@@ -766,6 +766,16 @@ $hastighet: .1s;
 //        border-bottom: 1px #888 dashed;
     }
 }
+.path-leverantor{
+    .views-row{
+        padding: $column-gutter 0;
+    }
+    .taxonomy-term{
+        cursor: pointer;
+//        pointer-events: auto;
+    }
+    
+}
 
 // --------------------------------------------------------------------------
 
