@@ -253,10 +253,10 @@
               </section>
           </main>
         </div>
-                  
+             
           <!-- Sidebar för page-->
-        {% if page.region_name.huvudmeny_2|render is not same as('') %}
-            {% if page.sidebar_first %}
+          {% if node.type.entity.label  != "Produkt" %}
+            {% if page.sidebar_first %}  
                 <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
                     {{ page.sidebar_first }}
                 </div>
@@ -264,7 +264,7 @@
         {% endif %}
           
           {% if page.sidebar_second %}
-            <div id="sidebar-second" class="{{ sidebar_sec_grid }} y columns sidebar">
+            <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
               {{ page.sidebar_second }}
             </div>
           {% endif %}

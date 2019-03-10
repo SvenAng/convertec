@@ -55,9 +55,12 @@
             {% set main_convertec ='large-12' %}
           {% endif %}
     */
-    if (!empty($variables['node']) && !empty($variables['node']->field_hogerspalt_basic)){
-        $variables['hspage'] = $variables['node']->field_hogerspalt_basic->value;
-    }
+      // global $base_url;
+      // $variables['base_path'] = $base_url;
+
+    // if (!empty($variables['node']) && !empty($variables['node']->field_hogerspalt_basic)){
+    //     $variables['hspage'] = $variables['node']->field_hogerspalt_basic->value;
+    // }
     
      // Convenience variables
     if (isset($variables['page']['sidebar_first'])) {
