@@ -675,8 +675,8 @@ $hastighet: .1s;
     //    border:none;
 }
 
-// ===================== Produktmeny i vänsterspalt ==============================
-#block-huvudmeny-2 {
+// ===================== Produktmeny i vänsterspalt =============================
+#block-huvudmeny-2, #block-produkter {
     //generella =====
     background: $white-smoke;
     padding: 0.5rem 0;
@@ -692,7 +692,7 @@ $hastighet: .1s;
         margin: 0;
     }
 
-    a {
+    a, span.avdelare {
         font-family: 'PT Sans Narrow', sans-serif;
         font-size: 0.9rem;
     }
@@ -711,7 +711,7 @@ $hastighet: .1s;
         color: $primary-color;
     }
 
-    ul li a {
+    ul li a, span.avdelare {
         color: $black;
         margin-left: 1rem;
         border-bottom: dotted $base 1px;
