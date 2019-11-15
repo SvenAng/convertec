@@ -8,9 +8,75 @@
     /**
      * Use this behavior as a template for custom Javascript.
      */
+    
+    // sökblocket
+    jQuery(".search-button").click(function () {
+        jQuery('#search-wrapper').slideToggle();
+        
+    });
+    // ============= Megamenu ================ 
+
+    jQuery("._lev_").click(function () {
+        jQuery(".mega-1").toggleClass("show");
+
+    });
+
+    jQuery("._prod_").click(function () {
+        jQuery(".mega-2").toggleClass("show");
+
+    });
+    // stäng megameny click outside
+    jQuery(document).bind('click', function (e) {
+        //http://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
+        var txt = jQuery(e.target).attr('class');
+        //console.log(txt);
+        var clicked = jQuery(e.target);
+        if (!clicked.parents().hasClass("megamenu")) {
+
+
+            if (txt == "_lev_ is-active" || txt == "_lev_") {
+                jQuery('#search-wrapper').hide();
+            } else {
+                jQuery(".mega-1").removeClass("show");
+                //console.log("outside");
+                //
+
+            }
+
+            if (txt == "_prod_ is-active" || txt == "_prod_") {
+                jQuery('#search-wrapper').hide();
+            } else {
+                jQuery(".mega-2").removeClass("show");
+                //jQuery('#search-wrapper').hide();
+
+            }
+        }
+
+    });
+
+    // timer
+    var interval = 1;
+
+    setInterval(function () {
+        if (interval == 425) {
+            /* if intervall reaches 5 the user is inactive hide element/s */
+            jQuery(".mega-2").removeClass("show");
+            jQuery(".mega-1").removeClass("show");
+            jQuery('#search-wrapper').slideUp();
+            interval = 1;
+        }
+        interval = interval + 1;
+        //console.log(interval);
+    }, 1000);
+
+    jQuery(document).bind('mousemove keypress', function () {
+        interval = 1;
+    });
+    
+    
     Drupal.behaviors.exampleBehavior = {
         attach: function (context, settings) {
-            //        jQuery('.megamenu span').addClass('fans');
+            
             // special för activa länkar
             var pathArray = location.pathname.split('/');
             var secondLevelLocation = pathArray[1];
@@ -27,10 +93,7 @@
             });
 
 
-            // sökblocket
-            jQuery(".search-button").click(function () {
-                jQuery('#search-wrapper').slideToggle();
-            });
+            
 
 
             // Mobilmenu
@@ -51,96 +114,14 @@
             jQuery(".block-huvudmeny-11 .menu-item--expanded span").click(function () {
                 jQuery(this).next().slideToggle();
 
-                //$("p").append(" <b>Appended text</b>.");
-                //            console.log(this);
-                //alert("klick");
-                //          var texten = jQuery();
-                //          if(jQuery('ul.mobile-menu-root  li.has-flyout  .expand span expand-indicator').text(') == '+'){
-                //             console.log("yes");
-                //             }
-                //          if(jQuery(this).text() == '+'){
-                //          console.log("-");
-                //            jQuery(this).text('-');
-                //          }else if(jQuery(this).text() == '-'){
-                //            console.log("+");
-                //            jQuery(this).text('+');
-                //          }
-
             });
-
-            //      jQuery("ul.mobile-menu-root > li.has-flyout > .expand").click(function(){
-            //        jQuery(this).next().slideToggle();
-            //        if(jQuery(this).find('.expand-indicator').text() == '+'){
-            //          jQuery(this).find('.expand-indicator').text('-');
-            //        }else{
-            //          jQuery(this).find('.expand-indicator').text('+');
-            //        }
-            //      });
-
 
 
             // fix för frontpage slick gallery texten onpå bilden
             jQuery('.slider-body').delay(500).fadeIn(200);
 
 
-            // ============= Megamenu ================ 
-
-            jQuery("._lev_").click(function () {
-                jQuery(".mega-1").toggleClass("show");
-
-            });
-
-            jQuery("._prod_").click(function () {
-                jQuery(".mega-2").toggleClass("show");
-
-            });
-            // stäng megameny click outside
-            jQuery(document).bind('click', function (e) {
-                //http://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
-                var txt = jQuery(e.target).attr('class');
-                //console.log(txt);
-                var clicked = jQuery(e.target);
-                if (!clicked.parents().hasClass("megamenu")) {
-
-
-                    if (txt == "_lev_ is-active" || txt == "_lev_") {
-                        jQuery('#search-wrapper').hide();
-                    } else {
-                        jQuery(".mega-1").removeClass("show");
-                        //console.log("outside");
-                        //
-
-                    }
-
-                    if (txt == "_prod_ is-active" || txt == "_prod_") {
-                        jQuery('#search-wrapper').hide();
-                    } else {
-                        jQuery(".mega-2").removeClass("show");
-                        //jQuery('#search-wrapper').hide();
-
-                    }
-                }
-
-            });
-
-            // timer
-            var interval = 1;
-
-            setInterval(function () {
-                if (interval == 425) {
-                    /* if intervall reaches 5 the user is inactive hide element/s */
-                    jQuery(".mega-2").removeClass("show");
-                    jQuery(".mega-1").removeClass("show");
-                    jQuery('#search-wrapper').slideUp();
-                    interval = 1;
-                }
-                interval = interval + 1;
-                //console.log(interval);
-            }, 1000);
-
-            jQuery(document).bind('mousemove keypress', function () {
-                interval = 1;
-            });
+            
 
             // Scroll topp
             jQuery(".scroll-top").click(function () {
