@@ -3,30 +3,53 @@
  * Placeholder file for custom sub-theme behaviors.
  *
  */
-(function ($, Drupal) {
+(function($, Drupal) {
 
     /**
      * Use this behavior as a template for custom Javascript.
      */
-    
+
     // sökblocket
-    jQuery(".search-button").click(function () {
+    jQuery(".search-button").click(function() {
         jQuery('#search-wrapper').slideToggle();
-        
+
     });
     // ============= Megamenu ================ 
-
-    jQuery("._lev_").click(function () {
+    // var a = 0;
+    // var b = 0;
+    jQuery("._lev_").click(function() {
         jQuery(".mega-1").toggleClass("show");
 
     });
+    // jQuery(".mega-1").hover(function() {
+    //     a = 1;
+    // });
+    // jQuery(".mega-1").mouseleave(function() {
+    //     if (a == 1) {
+    //         jQuery(".mega-1").removeClass("show");
+    //         a = 0;
+    //     }
+    // });
 
-    jQuery("._prod_").click(function () {
+
+    jQuery("._prod_").click(function() {
         jQuery(".mega-2").toggleClass("show");
 
     });
+    // jQuery(".mega-2").hover(function() {
+    //     b = 1;
+    // });
+    // jQuery(".mega-2").mouseleave(function() {
+    //     if (b == 1) {
+    //         jQuery(".mega-2").removeClass("show");
+    //         b = 0;
+    //     }
+    // });
+
+
+
     // stäng megameny click outside
-    jQuery(document).bind('click', function (e) {
+    jQuery(document).bind('click', function(e) {
         //http://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
         var txt = jQuery(e.target).attr('class');
         //console.log(txt);
@@ -57,7 +80,7 @@
     // timer
     var interval = 1;
 
-    setInterval(function () {
+    setInterval(function() {
         if (interval == 425) {
             /* if intervall reaches 5 the user is inactive hide element/s */
             jQuery(".mega-2").removeClass("show");
@@ -69,14 +92,14 @@
         //console.log(interval);
     }, 1000);
 
-    jQuery(document).bind('mousemove keypress', function () {
+    jQuery(document).bind('mousemove keypress', function() {
         interval = 1;
     });
-    
-    
+
+
     Drupal.behaviors.exampleBehavior = {
-        attach: function (context, settings) {
-            
+        attach: function(context, settings) {
+
             // special för activa länkar
             var pathArray = location.pathname.split('/');
             var secondLevelLocation = pathArray[1];
@@ -88,30 +111,30 @@
                 $("li .expand ._lev_").toggleClass("is-active");
             }
             // dödar länkar för dropdown
-            jQuery('.menu .dropdown').click(function () {
+            jQuery('.menu .dropdown').click(function() {
                 return false;
             });
 
 
-            
+
 
 
             // Mobilmenu
-            jQuery(".c-hamburger").click(function () {
+            jQuery(".c-hamburger").click(function() {
                 jQuery('#main-navigation').toggleClass('open');
                 jQuery('.c-hamburger').toggleClass('is-active');
             });
-            jQuery("ul.mobile-menu-root > li.has-flyout > .expand").click(function () {
+            jQuery("ul.mobile-menu-root > li.has-flyout > .expand").click(function() {
                 jQuery(this).next().slideToggle();
             });
 
             jQuery('.has-flyout .has-flyout .expand-indicator').text('');
-            jQuery(".block-huvudmeny-11 .dropdown").click(function () {
+            jQuery(".block-huvudmeny-11 .dropdown").click(function() {
                 jQuery(this).next().slideToggle();
 
             });
             //        jQuery("ul.mobile-menu-root > li.has-flyout > .expand span").click(function(){ 
-            jQuery(".block-huvudmeny-11 .menu-item--expanded span").click(function () {
+            jQuery(".block-huvudmeny-11 .menu-item--expanded span").click(function() {
                 jQuery(this).next().slideToggle();
 
             });
@@ -121,10 +144,10 @@
             jQuery('.slider-body').delay(500).fadeIn(200);
 
 
-            
+
 
             // Scroll topp
-            jQuery(".scroll-top").click(function () {
+            jQuery(".scroll-top").click(function() {
                 jQuery("html, body").animate({
                     scrollTop: 0
                 }, "slow");
@@ -137,7 +160,7 @@
 
             jQuery('.scroll-top').hide();
 
-            jQuery(window).scroll(function () {
+            jQuery(window).scroll(function() {
                 if (jQuery(this).scrollTop() > offset) {
                     jQuery('.scroll-top').fadeIn(duration);
                 } else {
@@ -153,8 +176,7 @@
                 autoplay: true,
                 autoplaySpeed: 4000,
 
-                responsive: [
-                    {
+                responsive: [{
                         breakpoint: 1024,
                         settings: {
                             slidesToShow: 6,
@@ -162,7 +184,7 @@
                             infinite: true,
                             arrows: false
                         }
-                },
+                    },
                     {
                         breakpoint: 600,
                         settings: {
@@ -170,7 +192,7 @@
                             slidesToScroll: 1,
                             arrows: false
                         }
-                },
+                    },
                     {
                         breakpoint: 480,
                         settings: {
@@ -179,11 +201,11 @@
 
                             arrows: false
                         }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
 
 
             });

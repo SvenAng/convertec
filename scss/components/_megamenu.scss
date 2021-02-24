@@ -1,121 +1,114 @@
-
 //TMP
-
-.megamenu{
+.megamenu {
     top: 114px;
     width: 90%;
     border-radius: 0;
-    transition: visibility 0.1s linear 0.1s, opacity 0.1s linear, margin 0s ease; 
+    transition: visibility 0.1s linear 0.1s, opacity 0.1s linear, margin 0s ease;
     position: absolute;
     z-index: 99999;
-    
-    .inner{
+    .inner {
         margin-top: 40px;
-        background: $silver; 
+        background: $silver;
         padding: 1rem;
-
     }
-    
-    ul.menu{
+    ul.menu {
         margin-left: 0;
         margin-right: $column-gutter;
-        
-        li{
-          display: inline-block;
-          margin-right: $column-gutter/4;
-          margin-left: $column-gutter/4;
-          width: 23%;
-          vertical-align: top;
-          height: 100%;
-          line-height: 1.3rem;
-          list-style-type: none;
-          border-right: 1px $gainsboro dotted;
-          ul.menu li{
-            display: block;
-            width: auto;
-            margin-top: 7px;
-            margin-bottom: 7px;
-            margin-left: 5px;
-            margin-right: 0;
-            
-            a{
-              font-size: 0.9rem;
+        li {
+            display: inline-block;
+            margin-right: $column-gutter/4;
+            margin-left: $column-gutter/4;
+            width: 23%;
+            vertical-align: top;
+            height: 100%;
+            line-height: 1.3rem;
+            list-style-type: none;
+            border-right: 1px $gainsboro dotted;
+            ul.menu li {
+                display: block;
+                width: auto;
+                margin-top: 7px;
+                margin-bottom: 7px;
+                margin-left: 5px;
+                margin-right: 0;
+                a {
+                    font-size: 0.9rem;
+                }
+                a:hover {
+                    color: $primary-color-lighter;
+                    -o-transition: color .2s ease-out, color .2s ease-in;
+                    -ms-transition: color .2s ease-out, color .2s ease-in;
+                    -moz-transition: color .2s ease-out, color .2s ease-in;
+                    -webkit-transition: color .2s ease-out, color .2s ease-in;
+                    /* ...and now override with proper CSS property */
+                    transition: color .2s ease-out, color .2s ease-in;
+                }
             }
-            
-            a:hover{
-              color:$primary-color-lighter;
-              -o-transition:color .2s ease-out, color .2s ease-in;
-              -ms-transition:color .2s ease-out, color .2s ease-in;
-              -moz-transition:color .2s ease-out, color .2s ease-in;
-              -webkit-transition:color .2s ease-out, color .2s ease-in;
-              /* ...and now override with proper CSS property */
-              transition:color .2s ease-out, color .2s ease-in;
-            }
-          }
         }
-      li:last-child, li li{
-        border: none;
-      }
-      
-        span{
+        li:last-child,
+        li li {
+            border: none;
+        }
+        span {
             font-size: 1.2rem;
             font-family: 'PT Sans Narrow', sans-serif;
-//            border-bottom: dotted $primary-color 1px;
+            //            border-bottom: dotted $primary-color 1px;
             color: $steel;
-            margin-bottom: $column-gutter/2; 
-            
+            margin-bottom: $column-gutter/2;
         }
-        ul.flyout{
+        ul.flyout {
             border-top: dotted $primary-color 1px;
         }
-    } 
-    ul li ul li{
+    }
+    ul li ul li {
         width: 100%;
         float: none;
         margin-left: 0;
-        span{
+        span {
             font-size: 1rem;
         }
-        
     }
-    ul li ul li.has-flyout{
+    ul li ul li.has-flyout {
         margin-top: $column-gutter/2;
     }
-    .nav-bar{
+    .nav-bar {
         margin: 0;
         padding: 0;
     }
-    nav{
+    nav {
         background: $silver;
+    }
+    .mega-1 {
+        display: none;
     }
 }
 
-.mega-1{
-    display: none;
+.megamenu ul.menu span {
+    color: $primary-color;
+    font-size: 1rem;
+    ;
 }
-.mega-2{
 
-}
-.megamenu.hidemega{
+.mega-2 {}
+
+.megamenu.hidemega {
     display: none;
 }
-.megamenu.show{
+
+.megamenu.show {
     display: block;
 }
 
-
-
 // Medium screens
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
-    .megamenu{
+    .megamenu {
         width: 100%;
-    }
-} 
-
-// Large screens
-@media only screen and (min-width: 64.063em) { 
-    .megamenu{
-        width: 960px;
     }
 }
 
+// Large screens
+@media only screen and (min-width: 64.063em) {
+    .megamenu {
+        width: 960px;
+    }
+}
